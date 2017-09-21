@@ -1,0 +1,10 @@
+<AbsoluteLayout
+        width="400" height="400"
+        class="fab-button-container"
+        [ngClass]="{'displayed': displayed === true, 'not-displayed': displayed === false}">
+    <Button #button1 class="mdi btn-circle medium btn-black button1" [text]="'mdi-grade' | fonticon" (tap)="onFabListButtonTab()"></Button>
+    <Button #button2 class="mdi btn-circle medium btn-black button2" [text]="'mdi-https' | fonticon" (tap)="onFabListButtonTab()"></Button>
+    <Button #button3 class="mdi btn-circle medium btn-black button3" [text]="'mdi-motorcycle' | fonticon" (tap)="onFabListButtonTab()"></Button>
+
+    <Button class="mdi btn-circle big btn-gold btn-center" [text]="'mdi-more-horiz' | fonticon" (tap)="onFabButtonTab()"></Button>
+</AbsoluteLayout>

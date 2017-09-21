@@ -1,0 +1,9 @@
+<GridLayout columns="80, *" rows="auto" >
+    <Image col="0" src="res://icon" stretch="none"></Image>
+
+    <AbsoluteLayout col="1">
+        <Label #label text="Input" top="20"></Label>
+
+        <TextField #input hint="Fill this field" top="20" (tap)="onInputTab()"></TextField>
+    </AbsoluteLayout>
+</GridLayout>
