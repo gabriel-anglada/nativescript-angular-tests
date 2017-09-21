@@ -59,10 +59,13 @@ export class HomeComponent extends Observable implements OnInit, AfterViewInit {
         });
     }
 
+
     ngAfterViewInit() {
         console.log("HomeComponent ngAfterViewInit - this.drawerComponent.sideDrawer=", this.drawerComponent.sideDrawer);
         this.changeDetectionRef.detectChanges();
         this.drawerService.drawer = this.drawerComponent.sideDrawer;
+        //this.drawerService.setShowOverNavigation(true);
+        //this.drawerService.setDrawerContentSize(400);
     }
 
 
@@ -75,27 +78,19 @@ export class HomeComponent extends Observable implements OnInit, AfterViewInit {
         return this._sideDrawerTransition;
     }
 
-    public get currentNotification(): string {
-        return this._currentNotification;
-    }
-
     public onDrawerOpening() {
-        console.log("Drawer opening");
-        this._currentNotification = "Drawer opening";
+        this.drawerService.setState(DrawerService.STATE_OPENING);
     }
 
     public onDrawerOpened() {
-        console.log("Drawer opened");
-        this._currentNotification = "Drawer opened";
+        this.drawerService.setState(DrawerService.STATE_OPENED);
     }
 
     public onDrawerClosing() {
-        console.log("Drawer closing");
-        this._currentNotification = "Drawer closing";
+        this.drawerService.setState(DrawerService.STATE_CLOSING);
     }
 
     public onDrawerClosed() {
-        console.log("Drawer closed");
-        this._currentNotification = "Drawer closed";
+        this.drawerService.setState(DrawerService.STATE_CLOSED);
     }
 }

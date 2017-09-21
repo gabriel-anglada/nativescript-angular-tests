@@ -1,9 +1,24 @@
-<GridLayout columns="80, *" rows="auto" >
-    <Image col="0" src="res://icon" stretch="none"></Image>
-
-    <AbsoluteLayout col="1">
-        <Label #label text="Input" top="20"></Label>
-
-        <TextField #input hint="Fill this field" top="20" (tap)="onInputTab()"></TextField>
-    </AbsoluteLayout>
-</GridLayout>
+<ScrollView row="0" col="2">
+    <StackLayout class="sidedrawer-content">
+        <GridLayout columns="auto, *" rows="60" class="side-item" pageTransition="slideLeft">
+            <Label text="&#xf0f0;" class="fa sidedrawer-list-item-icon" row="0" col="0"></Label>
+            <Label text="home" class="side-label" row="0" col="1" [nsRouterLink]="['/home']" ></Label>
+            <!-- see http://fontawesome.io/cheatsheet/ for icons -->
+        </GridLayout>
+        <GridLayout class="sideLightGrayLabel">
+            <Label text="ACCOUNT" class="sidedrawer-list-item-text"></Label>
+        </GridLayout>
+        <GridLayout columns="auto, *" rows="60" class="side-item" pageTransition="slideLeft">
+            <Label text="&#xf0f0;" class="fa sidedrawer-list-item-icon" row="0" col="0"></Label>
+            <Label text="login" class="side-label" row="0" col="1" [nsRouterLink]="['/home/login']" ></Label>
+            <!-- see http://fontawesome.io/cheatsheet/ for icons -->
+        </GridLayout>
+        <GridLayout columns="auto, *" rows="60" class="side-item" pageTransition="slideLeft">
+            <Label text="&#xf002;" class="fa sidedrawer-list-item-icon" row="0" col="0"></Label>
+            <Label text="help" class="side-label" row="0" col="1" [nsRouterLink]="['/home/help']" ></Label>
+        </GridLayout>
+        <GridLayout class="sideLightGrayLabel">
+            <Label text="SETTINGS" class="sidedrawer-list-item-text"></Label>
+        </GridLayout>
+    </StackLayout>
+</ScrollView>

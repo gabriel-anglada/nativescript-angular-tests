@@ -5,6 +5,10 @@
     font-family: FontAwesome, fontawesome-webfont;
 }
 
+.mdi {
+    font-family: "Material Icons", "MaterialIcons-Regular";
+}
+
 .sideTitleStackLayout {
     padding: 12;
     color: black;
@@ -35,3 +39,4 @@
     vertical-align: center;
     text-align: left;
 }
+

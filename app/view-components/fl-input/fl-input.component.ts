@@ -1,37 +1,43 @@
-import {Component, ViewChild} from '@angular/core';
-import {Button} from "ui/button";
-import {AnimationCurve} from "ui/enums";
+import {Component, ElementRef, ViewChild} from '@angular/core';
+import {View} from "ui/core/view";
+import {Animation} from "ui/animation";
+import buttonModule = require("ui/button");
 
 @Component({
-    selector: 'FabButton',
-    templateUrl: 'view-components/fab-button/fab-button.component.html',
-    styleUrls: ["view-components/fab-button/fab-button.component.css"],
+    selector: 'FlInput',
+    templateUrl: 'view-components/fl-input/fl-input.component.html',
+    styleUrls: ["view-components/fl-input/fl-input.component.css"],
 })
-export class FabButtonComponent {
+export class FlInputComponent {
 
-    displayed:boolean;
+    @ViewChild("label") labelElement: ElementRef;
+    @ViewChild("input") inputElement: ElementRef;
+    private _label:View;
+    private _input:View;
 
-    constructor() {}
+    private toFill:boolean;
 
-    onFabButtonTab(){
-        if(this.displayed) {
-            this.hideButtons();
-        } else {
-            this.displayButtons();
-        }
+    constructor() {
+        this.toFill = false;
     }
 
-    onFabListButtonTab() {
-        this.hideButtons();
+    ngOnInit() {
+        this._label = <View>this.labelElement.nativeElement;
+        this._input = <View>this.inputElement.nativeElement;
+
+        this._input.style.opacity = 0.01;
+
+        this._input.on(buttonModule.Button.tapEvent, this.onInputTab, this);
     }
 
-    displayButtons(){
-        console.log('Display fab list');
-        this.displayed = true;
+    onInputTab(e) {
+        if(!this.toFill) this.showInput();
     }
 
-    hideButtons(){
-        console.log('Hide fab list');
-        this.displayed = false;
+    showInput() {
+        new Animation([
+            {target: this._label, translate: {x: 0, y: -20},duration: 200, scale:{x:0.8, y:0.8}},
+            {target: this._input, opacity: 1, duration: 200}
+        ], false).play();
     }
 }

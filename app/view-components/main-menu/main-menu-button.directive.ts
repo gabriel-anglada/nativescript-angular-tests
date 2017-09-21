@@ -1,10 +1,9 @@
-import {Component} from '@angular/core';
+import {Directive} from '@angular/core';
 
-@Component({
-    selector: 'MainMenuButton',
-    templateUrl: 'view-components/main-menu/main-menu-button.component.html'
+@Directive({
+    selector: 'main-menu-button',
 })
-export class MainMenuButtonComponent {
+export class MainMenuButtonDirective {
 
     constructor() {}
 }

@@ -29,5 +29,9 @@ export class WelcomeComponent extends Observable implements OnInit, AfterViewIni
     this.changeDetectionRef.detectChanges();
   }
 
+    fabTap() {
+      console.log('FAB TAB')
+    }
+
 
 }

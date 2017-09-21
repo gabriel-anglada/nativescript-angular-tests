@@ -19,6 +19,11 @@ import {LoginComponent} from "./app-components/login/login.component";
 import {AppComponent} from "./app-components/app.component";
 import {WelcomeComponent} from "./app-components/welcome/welcome.component";
 import {NativeScriptModule} from "nativescript-angular/nativescript.module";
+import {TNSFontIconModule} from "nativescript-ng2-fonticon";
+import {FabButtonComponent} from "./view-components/fab-button/fab-button.component";
+import {FlInputComponent} from "./view-components/fl-input/fl-input.component";
+import {MainMenuButtonDirective} from "./view-components/main-menu/main-menu-button.directive";
+import {MainMenuComponent} from "./view-components/main-menu/main-menu.component";
 
 export const APP_ROUTES: Routes = [
     {
@@ -36,6 +41,20 @@ export const APP_ROUTES: Routes = [
         ]
     },
 
+];
+
+import { registerElement } from "nativescript-angular/element-registry";
+registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
+
+// view-components used as visual components: declared in NativeModule
+export const VIEW_COMPONENTS: any[] = [
+    FabButtonComponent,
+    FlInputComponent,
+    MainMenuComponent
+];
+
+export const DIRECTIVES: any[] = [
+    MainMenuButtonDirective
 ];
 
 // app-components used as routes NOTE: declared in NativeModule
@@ -59,6 +78,8 @@ enableProdMode();
         AppComponent
     ],
     declarations: [
+        DIRECTIVES,
+        VIEW_COMPONENTS,
         APP_COMPONENTS,
         SIDEDRAWER_DIRECTIVES,
         AUX_COMPONENTS,
@@ -68,7 +89,10 @@ enableProdMode();
         NativeScriptFormsModule,
         NativeScriptHttpModule,
         NativeScriptRouterModule,
-        NativeScriptRouterModule.forRoot(APP_ROUTES)
+        NativeScriptRouterModule.forRoot(APP_ROUTES),
+        TNSFontIconModule.forRoot({
+            'mdi': 'material-design-icons.css'
+        })
     ],
     exports: [
         SIDEDRAWER_DIRECTIVES,

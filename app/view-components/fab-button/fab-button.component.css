@@ -1,0 +1,141 @@
+/* FAB */
+.fab-button-container {
+    overflow: auto;
+    width: 220;
+    height: 200;
+}
+
+.fab-button-container .btn-center {
+    top: 100;
+    left: 60;
+}
+
+.fab-button-container .btn-satelite {
+    top: 120;
+    left: 80;
+}
+
+.fab-button-container .btn-gold {
+    background-color: gold;
+    color: black;
+}
+
+.fab-button-container .btn-black {
+    background-color: black;
+    color: white;
+}
+
+.fab-button-container .btn-circle.big {
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+}
+
+.fab-button-container .btn-circle.medium {
+    border-radius: 30px;
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+}
+
+.fab-button-container.displayed .button1 {
+    animation-name: c-ne;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+.fab-button-container.displayed .button2 {
+    animation-name: c-n;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.1s;
+}
+
+.fab-button-container.displayed .button3 {
+    animation-name: c-nw;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.2s;
+}
+
+.fab-button-container.not-displayed .button1 {
+    animation-name: ne-c;
+    animation-duration: 0.3s;
+}
+
+.fab-button-container.not-displayed .button2 {
+    animation-name: n-c;
+    animation-duration: 0.3s;
+}
+
+.fab-button-container.not-displayed .button3 {
+    animation-name: nw-c;
+    animation-duration: 0.3s;
+}
+
+/* Explode */
+@-webkit-keyframes c-ne {
+    0%   {opacity:0; transform: translate(0, 0)}
+    85%   {opacity:0.75; transform: translate(75, -75)}
+    100% {opacity:1; transform: translate(70, -70)}
+}
+
+@-webkit-keyframes c-n {
+    0%   {opacity:0; transform: translate(0, 0)}
+    85%   {opacity:0.75; transform: translate(0, -105)}
+    100% {opacity:1; transform: translate(0, -100)}
+}
+
+@-webkit-keyframes c-nw {
+    0%   {opacity:0; transform: translate(0, 0)}
+    85%   {opacity:0.75; transform: translate(-75, -75)}
+    100% {opacity:1; transform: translate(-70, -70)}
+}
+@-webkit-keyframes c-se {
+    0%   {opacity:0; transform: translate(0, 0)}
+    85%   {opacity:0.75; transform: translate(75, 75)}
+    100% {opacity:1; transform: translate(70, 70)}
+}
+
+@-webkit-keyframes c-s {
+    0%   {opacity:0; transform: translate(0, 0)}
+    85%   {opacity:0.75; transform: translate(0, 105)}
+    100% {opacity:1; transform: translate(0, 100)}
+}
+
+@-webkit-keyframes c-sw {
+    0%   {opacity:0; transform: translate(0, 0)}
+    85%   {opacity:0.75; transform: translate(-75, 75)}
+    100% {opacity:1; transform: translate(-70, 70)}
+}
+
+/* Implode */
+@-webkit-keyframes ne-c {
+    0% {opacity:1; transform: translate(70, -70)}
+    100%   {opacity:0; transform: translate(0, 0)}
+}
+
+@-webkit-keyframes n-c {
+    0% {opacity:1; transform: translate(0, -100)}
+    100%   {opacity:0; transform: translate(0, 0)}
+}
+
+@-webkit-keyframes nw-c {
+    0% {opacity:1; transform: translate(-70, -70)}
+    100%   {opacity:0; transform: translate(0, 0)}
+}
+@-webkit-keyframes se-c {
+    0% {opacity:1; transform: translate(70, 70)}
+    100%   {opacity:0; transform: translate(0, 0)}
+}
+
+@-webkit-keyframes s-c {
+    0% {opacity:1; transform: translate(0, 100)}
+    100%   {opacity:0; transform: translate(0, 0)}
+}
+
+@-webkit-keyframes sw-c {
+    0% {opacity:1; transform: translate(-70, 70)}
+    100%   {opacity:0; transform: translate(0, 0)}
+}

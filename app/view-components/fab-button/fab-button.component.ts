@@ -1,13 +1,37 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {Button} from "ui/button";
+import {AnimationCurve} from "ui/enums";
 
 @Component({
-    moduleId: module.id,
     selector: 'FabButton',
-    templateUrl: 'fab-button.component.html'
+    templateUrl: 'view-components/fab-button/fab-button.component.html',
+    styleUrls: ["view-components/fab-button/fab-button.component.css"],
 })
 export class FabButtonComponent {
 
-    constructor() {
+    displayed:boolean;
 
+    constructor() {}
+
+    onFabButtonTab(){
+        if(this.displayed) {
+            this.hideButtons();
+        } else {
+            this.displayButtons();
+        }
+    }
+
+    onFabListButtonTab() {
+        this.hideButtons();
+    }
+
+    displayButtons(){
+        console.log('Display fab list');
+        this.displayed = true;
+    }
+
+    hideButtons(){
+        console.log('Hide fab list');
+        this.displayed = false;
     }
 }
